@@ -10,7 +10,16 @@ def hide_menu(sender, data):
 def show_menu(sender, data):
     show_item("Tools")
 
+def open_file(sender,data):
+    print("open file")
 
+
+def close_file(sender,data):
+    print("close file")
+
+def save_file(sender,data):
+    print("save file")
+    
 def change_callback(sender, data):
     callback_name=get_item_callback("Show Docs")
     print(callback_name)
@@ -45,9 +54,11 @@ def delete_themes(sender, data):
 
 with window("Main Window"):
     with menu_bar("MenuBar"):
-        with menu("Show/Hide"):
-            add_menu_item("Show Tools", callback=show_menu)
-            add_menu_item("Hide Tools", callback=hide_menu)
+        with menu("File"):
+            add_menu_item("create", callback=show_menu)
+            add_menu_item("open", callback=open_file)
+            add_menu_item("close", callback=close_file)
+            add_menu_item("save", callback=save_file)
             add_menu_item('Change "Show Docs" Callback', callback=change_callback)
             with tooltip('Change "Show Docs" Callback', "tooltip1"):
                 add_dummy(width=150)  # this is because the popup doesnt have a width to set
@@ -60,7 +71,14 @@ with window("Main Window"):
                 add_menu_item("Add Themes", callback=add_themes)
                 add_menu_item("Delete Themes", callback=delete_themes)
                 hide_item("Delete Themes")
+        with menu("Views"):
+            add_menu_item("tools", callback=show_docs)
+        with menu("Edit"):
+            add_menu_item("cuts", callback=show_docs)
+        with menu("Help"):
+            add_menu_item("Show Docs", callback=show_docs)
 
+    """
     add_text("This menu bar demonstrates:")
     add_text('standard menu bar, menus, and menu items', bullet=True)
     add_text('adding menus to menus', bullet=True)
@@ -69,5 +87,7 @@ with window("Main Window"):
     add_text("adding and deleting menus, menu items, app widgets from a menu item", bullet=True)
     add_text("placing a widget into the menu that controlling another widget on the body of the app", bullet=True)
     add_spacing(count=50)
+    """
 
-start_dearpygui(primary_window="Main Window")
+def start_gui():
+    start_dearpygui(primary_window="Main Window")
