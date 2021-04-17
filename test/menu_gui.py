@@ -1,6 +1,6 @@
 from dearpygui.core import *
 from dearpygui.simple import *
-
+from file_oper import file_operation
 
 # callbacks
 def hide_menu(sender, data):
@@ -12,7 +12,7 @@ def show_menu(sender, data):
 
 def open_file(sender,data):
     print("open file")
-
+    #file_operation.file_read(data)
 
 def close_file(sender,data):
     print("close file")
