@@ -1,6 +1,6 @@
 from PyQt5.QtWidgets import *
 from PyQt5 import QtWidgets
-from fileopen import Ui_MainWindow
+from file_oper import Ui_MainWindow
 import sys
 import os
  
